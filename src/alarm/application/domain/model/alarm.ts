@@ -1,4 +1,4 @@
-import { AlarmSeverity } from './value-object/alarm-severity';
+import { AlarmSeverity } from './alarm-severity';
 
 export class Alarm {
   constructor(
