@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { AlarmService } from './alarm.service';
-import { CreateAlarmDto } from './dto/create-alarm.dto';
-import { UpdateAlarmDto } from './dto/update-alarm.dto';
+import { AlarmService } from './application/alarm.service';
+import { CreateAlarmDto } from './presenter/http/dto/create-alarm.dto';
+import { UpdateAlarmDto } from './presenter/http/dto/update-alarm.dto';
 
 @Controller('alarm')
 export class AlarmController {
