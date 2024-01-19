@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AlarmService } from '../../application/alarm.service';
 import { CreateAlarmDto } from './dto/create-alarm.dto';
+import { CreateAlarmCommand } from '../../application/command/create-alarm.command';
 
 @Controller('alarm')
 export class AlarmController {
@@ -8,7 +9,9 @@ export class AlarmController {
 
   @Post()
   create(@Body() createAlarmDto: CreateAlarmDto) {
-    return this.alarmService.create(createAlarmDto);
+    return this.alarmService.create(
+      new CreateAlarmCommand(createAlarmDto.name, createAlarmDto.severity),
+    );
   }
 
   @Get()
