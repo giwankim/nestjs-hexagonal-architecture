@@ -6,7 +6,6 @@ import {
 } from '../../port/out/load-alarms.port';
 import { Inject, Injectable } from '@nestjs/common';
 
-// TODO: Implement this service
 @Injectable()
 export class GetAlarmsService implements GetAlarmsUseCase {
   constructor(
@@ -14,6 +13,6 @@ export class GetAlarmsService implements GetAlarmsUseCase {
   ) {}
 
   getAlarms(): Promise<Alarm[]> {
-    return Promise.resolve([]);
+    return this.loadAlarmsPort.loadAlarms();
   }
 }
