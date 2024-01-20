@@ -5,18 +5,15 @@ import { CREATE_ALARM_USE_CASE } from './application/port/in/create-alarm.use-ca
 import { CreateAlarmService } from './application/domain/service/create-alarm.service';
 import { GET_ALARMS_USE_CASE } from './application/port/in/get-alarms.use-case';
 import { GetAlarmsService } from './application/domain/service/get-alarms.service';
-import { LOAD_ALARMS_PORT } from './application/port/out/load-alarms.port';
-import { SAVE_ALARM_PORT } from './application/port/out/save-alarm.port';
-import { AlarmPersistenceAdapter } from './adapter/out/persistence/alarm.persistence.adapter';
+import { AlarmTypeormPersistenceModule } from './adapter/out/persistence/typeorm/alarm.typeorm.persistence.module';
 
 @Module({
+  imports: [AlarmTypeormPersistenceModule],
   controllers: [AlarmController],
   providers: [
     AlarmFactory,
     { provide: CREATE_ALARM_USE_CASE, useClass: CreateAlarmService },
     { provide: GET_ALARMS_USE_CASE, useClass: GetAlarmsService },
-    { provide: LOAD_ALARMS_PORT, useClass: AlarmPersistenceAdapter },
-    { provide: SAVE_ALARM_PORT, useClass: AlarmPersistenceAdapter },
   ],
 })
 export class AlarmModule {}
