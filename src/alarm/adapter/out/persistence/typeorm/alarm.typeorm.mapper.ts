@@ -1,6 +1,6 @@
 import { AlarmTypeOrmEntity } from './alarm.typeorm.entity';
-import { Alarm } from '../../../../application/domain/model/alarm';
-import { AlarmSeverity } from '../../../../application/domain/model/alarm-severity';
+import { Alarm } from '@alarm/application/domain/model/alarm';
+import { AlarmSeverity } from '@alarm/application/domain/model/alarm-severity';
 
 export class AlarmTypeOrmMapper {
   static mapToDomainEntity(alarmEntity): Alarm {

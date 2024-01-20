@@ -1,9 +1,12 @@
-import { CreateAlarmUseCase } from '../../port/in/create-alarm.use-case';
-import { Alarm } from '../model/alarm';
-import { CreateAlarmCommand } from '../../port/in/create-alarm.command';
-import { SAVE_ALARM_PORT, SaveAlarmPort } from '../../port/out/save-alarm.port';
 import { Inject, Injectable } from '@nestjs/common';
 import { AlarmFactory } from './alarm.factory';
+import { CreateAlarmUseCase } from '@alarm/application/port/in/create-alarm.use-case';
+import {
+  SAVE_ALARM_PORT,
+  SaveAlarmPort,
+} from '@alarm/application/port/out/save-alarm.port';
+import { CreateAlarmCommand } from '@alarm/application/port/in/create-alarm.command';
+import { Alarm } from '@alarm/application/domain/model/alarm';
 
 @Injectable()
 export class CreateAlarmService implements CreateAlarmUseCase {

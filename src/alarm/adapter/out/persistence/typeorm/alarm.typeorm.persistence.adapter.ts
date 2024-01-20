@@ -1,11 +1,11 @@
-import { LoadAlarmsPort } from '../../../../application/port/out/load-alarms.port';
-import { SaveAlarmPort } from '../../../../application/port/out/save-alarm.port';
-import { Alarm } from '../../../../application/domain/model/alarm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AlarmTypeOrmEntity } from './alarm.typeorm.entity';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
+import { AlarmTypeOrmEntity } from './alarm.typeorm.entity';
 import { AlarmTypeOrmMapper } from './alarm.typeorm.mapper';
+import { LoadAlarmsPort } from '@alarm/application/port/out/load-alarms.port';
+import { SaveAlarmPort } from '@alarm/application/port/out/save-alarm.port';
+import { Alarm } from '@alarm/application/domain/model/alarm';
 
 @Injectable()
 export class AlarmTypeormPersistenceAdapter

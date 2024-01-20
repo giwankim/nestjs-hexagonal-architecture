@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
-import { AlarmSeverity } from '../model/alarm-severity';
-import { Alarm } from '../model/alarm';
+import { Alarm } from '@alarm/application/domain/model/alarm';
+import { AlarmSeverity } from '@alarm/application/domain/model/alarm-severity';
 
 @Injectable()
 export class AlarmFactory {

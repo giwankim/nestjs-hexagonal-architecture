@@ -1,15 +1,15 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
-import { CreateAlarmCommand } from '../../../application/port/in/create-alarm.command';
-import { CreateAlarmRequestDto } from './create-alarm.request.dto';
+import { CreateAlarmCommand } from '@alarm/application/port/in/create-alarm.command';
 import {
   CREATE_ALARM_USE_CASE,
   CreateAlarmUseCase,
-} from '../../../application/port/in/create-alarm.use-case';
+} from '@alarm/application/port/in/create-alarm.use-case';
 import {
   GET_ALARMS_USE_CASE,
   GetAlarmsUseCase,
-} from '../../../application/port/in/get-alarms.use-case';
-import { Alarm } from '../../../application/domain/model/alarm';
+} from '@alarm/application/port/in/get-alarms.use-case';
+import { Alarm } from '@alarm/application/domain/model/alarm';
+import { CreateAlarmRequestDto } from './create-alarm.request.dto';
 
 @Controller('alarm')
 export class AlarmController {

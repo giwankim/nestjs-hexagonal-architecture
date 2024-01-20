@@ -1,4 +1,4 @@
-import { Alarm } from '../../domain/model/alarm';
+import { Alarm } from '@alarm/application/domain/model/alarm';
 
 export const SAVE_ALARM_PORT = Symbol('SAVE_ALARM_PORT');
 
