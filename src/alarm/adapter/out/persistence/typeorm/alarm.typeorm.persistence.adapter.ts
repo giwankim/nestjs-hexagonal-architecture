@@ -8,7 +8,7 @@ import { SaveAlarmPort } from '@alarm/application/port/out/save-alarm.port';
 import { Alarm } from '@alarm/application/domain/model/alarm';
 
 @Injectable()
-export class AlarmTypeormPersistenceAdapter
+export class AlarmTypeOrmPersistenceAdapter
   implements LoadAlarmsPort, SaveAlarmPort
 {
   constructor(
