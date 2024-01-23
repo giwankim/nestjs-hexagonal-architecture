@@ -13,19 +13,20 @@ export class AlarmTypeOrmPersistenceAdapter
 {
   constructor(
     @InjectRepository(AlarmTypeOrmEntity)
-    private alarmRepository: Repository<AlarmTypeOrmEntity>,
+    private readonly alarmRepository: Repository<AlarmTypeOrmEntity>,
+    private readonly alarmTypeOrmMapper: AlarmTypeOrmMapper,
   ) {}
 
   async loadAlarms(): Promise<Alarm[]> {
-    const alarmEntities = await this.alarmRepository.find();
-    return alarmEntities.map((alarmEntity) =>
-      AlarmTypeOrmMapper.mapToDomainEntity(alarmEntity),
+    const alarmOrmEntities = await this.alarmRepository.find();
+    return alarmOrmEntities.map((alarmOrmEntity) =>
+      this.alarmTypeOrmMapper.mapToDomainEntity(alarmOrmEntity),
     );
   }
 
   async saveAlarm(alarm: Alarm): Promise<Alarm> {
-    const ormEntity = AlarmTypeOrmMapper.mapToOrmEntity(alarm);
-    const savedEntity = await this.alarmRepository.save(ormEntity);
-    return AlarmTypeOrmMapper.mapToDomainEntity(savedEntity);
+    const alarmOrmEntity = this.alarmTypeOrmMapper.mapToOrmEntity(alarm);
+    const savedAlarmOrmEntity = await this.alarmRepository.save(alarmOrmEntity);
+    return this.alarmTypeOrmMapper.mapToDomainEntity(savedAlarmOrmEntity);
   }
 }
