@@ -15,7 +15,7 @@ export class CreateAlarmService implements CreateAlarmUseCase {
     private readonly alarmFactory: AlarmFactory,
   ) {}
 
-  createAlarm(command: CreateAlarmCommand): Promise<Alarm> {
+  createAlarm(command: CreateAlarmCommand): Alarm | Promise<Alarm> {
     const alarm = this.alarmFactory.create(command.name, command.severity);
     return this.saveAlarmPort.saveAlarm(alarm);
   }

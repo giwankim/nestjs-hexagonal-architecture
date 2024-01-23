@@ -21,7 +21,9 @@ export class AlarmController {
   ) {}
 
   @Post()
-  create(@Body() createAlarmRequestDto: CreateAlarmRequestDto): Promise<Alarm> {
+  create(
+    @Body() createAlarmRequestDto: CreateAlarmRequestDto,
+  ): Alarm | Promise<Alarm> {
     return this.createAlarmUseCase.createAlarm(
       new CreateAlarmCommand(
         createAlarmRequestDto.name,
@@ -31,7 +33,7 @@ export class AlarmController {
   }
 
   @Get()
-  findAll(): Promise<Alarm[]> {
+  findAll(): Alarm[] | Promise<Alarm[]> {
     return this.getAlarmsUseCase.getAlarms();
   }
 }

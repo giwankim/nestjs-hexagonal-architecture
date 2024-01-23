@@ -12,7 +12,7 @@ export class GetAlarmsService implements GetAlarmsUseCase {
     @Inject(LOAD_ALARMS_PORT) private readonly loadAlarmsPort: LoadAlarmsPort,
   ) {}
 
-  getAlarms(): Promise<Alarm[]> {
+  getAlarms(): Alarm[] | Promise<Alarm[]> {
     return this.loadAlarmsPort.loadAlarms();
   }
 }
